@@ -1,0 +1,248 @@
+**rce - create react component
+
+
+*what is react js?
+    -It is open source javascript library.
+    for building user interfaces for the 
+     web applications as well as mobile applications.
+    -react is a front end library developed by Facebook.
+    -it is used for building reusable UI components.
+    -In a model view controller architecture, react defines the
+     view part of the application and it also responsible for how the app looks and feeels.
+    
+    
+    -react makes it easy to manage and build views for states
+    -react is component driven architecture makes it efficient 
+    for teams to complex apllications.
+    -reactIJS is used to build single page application.
+    
+    *single page applpication - A web applpication or website that interacts with the user by 
+     dynamically rewriting the current page rather than loading entire new pages from a server.
+    -one of the best example is Gmail.
+
+    *DOM - Document object model is an object created by browser each time web page is loaded.
+            what was the dom does is , it can dynamically add (or) remove elements from a web page from the backend.
+    
+
+*why we use react in javascript==>
+    -the most important aspect of reactjs is,it generate HTML in the runtime.
+    -because of this application response speed increase rapidly,that is what we learn in JSX
+    -reusable components
+    -so easy to learn compare to others.
+    -can be used for mobile apps.
+    -dedicated tools for easy debugging
+
+*stand out features of reactJS:
+    JSX -> 
+        -JSX stands for javascript XML ==> combination of javascript and HTML 
+        ==> JSX allows to write HTML directly within javascript
+        -it is used for userinterface look like
+        -It makes it easier for us to create templates.
+        -JSX code must be compiled into JavaScript. 
+         The transpiler Babel is a popular tool for this process.
+    JSX is javascript syntax extension.it isnt necessary to use JSX in react developement,but it is recommended.
+    
+    VIRTUAL DOM ->
+        DOM - document object model
+        -actually defines how documents are accessed and manipulated in a web page.
+        -it represents entire structure of the web page in the form of the tree.
+        -vertual DOM is clone of original DOM 
+        -by using vertual DOM react only update only state changed components.
+    
+    EXTENSIONS ->
+        -it provides server-side rendering.
+        -supports mobile app developement
+        -extended with flux and redux,amongn others.
+        -Flux is a pattern that helps keeping our data unidirectional.
+    
+    PERFORMANCE ->
+        -react use virtual DOM, as we know virtual dom impact the speed of the application.
+
+    DEBUGGING TOOLS ->
+        -react applications are extreamly easy to test due to a large developer community.
+        -facebook even provides a small browser extension that makes react debugging faster and easier.
+
+
+    DECLARATIVE ->
+        - Design simple views for each state in your application.
+
+    
+    COMPONENTS ->
+        -react is all about components.we need to think of everything as a component.
+
+    LICENSE ->
+        -react is licensed under the facebook inc.Documentation is licensed under CCby 4.0..
+    
+    
+
+*Pros of react
+    -easy creation of dynamic web applications.
+    -uses virtual DOM which is a javascript object.this will improve apps performance,since javascript virtual DOM is faster than the regular DOM.
+    -Can be used on client and server side as well as with other frameworks.
+    -component and data patterns improve readability, which helpls to maintain larger apps.
+
+*cons of react 
+    -covers only the view layer of the app
+    -uses inline templating and JSX, which might seem awkward to some developers.
+
+*installation
+    *Node js is an open source,cross- platform,javasccript runtime environment
+     that executes javascript code outside of a browser
+
+    1.first always check node and npm versions in your machine
+    node -v,npm -versions
+    2.npx create-react-app <project-name>
+    -project name cant allow upper case letters
+    -waite 5 to 10 min for only first time
+
+    -cd myfirstapp
+    -npm start 
+         ==> completed.
+*the default port is 3000
+
+*Project Folder Structure==>
+    *understanding the defailt folder Structure
+        -walk through of the application folder
+        -lets create our first Hello World App
+        1.node_modules - folder
+            ->dependencies that are installed when we run "npm i"
+        2.public - folder   
+            ->the index.html files - by default will be empty
+            -> <div id="root"></div>
+        3.src - source folder
+            ->this is the place where all action happens
+            ->App.css - default common stylesheet thats created
+            ->App.js  - simple component which has header,image and some text.
+            ->App.test.js - this is the test file for App.js
+            ->index.js - which is calling <App> component
+            ->index.css - common stylesheet
+            ->serviceworker - when you want our app to work offline
+            ->setupTest - setup custom test scripts?setup
+            ->package.json - most important file - it contains scripts and dependencies required for the project.
+
+*Components Summary ==>
+    -components describe a part of user interface
+    -they are reusable and can be nested inside other components
+    two types:-
+        ->stateless functional components or (smart component) - is a javascript function that accepts input as properties
+                                            and returns HTML the describes UI
+        ->stateful class components or (dumb component) - it can not store data 
+    
+*Expressions in JSX
+    -With JSX you can write expressions inside curly braces { }.
+    -The expression can be a React variable, or property, or any other valid JavaScript expression. 
+
+*Attributes in JSX:==>
+    -JSX allows us to use attributes with the HTML elements 
+    -JSX uses the camel case naming convention for attributes.
+
+example:-
+
+        import React from 'react';
+        import ReactDOM from 'react-dom';
+        
+        const element = <div><h1 className = "hello">Hello Geek</h1>
+                    <h2 data-sampleAttribute="sample">Custom attribute</h2>< /div>;
+        
+        ReactDOM.render(
+            element,
+            document.getElementById("root")
+        );
+*Dom Events : ==>
+    -React has the same events as HTML: click, change, mouseover etc.
+
+
+*Wrapping elements or Children in JSX: ==>
+    -Consider a situation where you want to render multiple tags at a time. 
+     To do this we need to wrap all of this tag under a parent tag and then 
+     render this parent element to the HTML. 
+     All the subtags are called child tags or children of this parent element. 
+
+
+
+*What’s the difference between React and ReactDOM?
+        Answer
+        React is a JavaScript library for building User Interfaces and 
+        ReactDOM is the JavaScript library that allows React to interact with the DOM.
+
+*The Virtual DOM
+    -In React, for every DOM object, there is a corresponding “virtual DOM object.
+    ” A virtual DOM object is a representation of a DOM object, like a lightweight copy.
+
+    -A virtual DOM object has the same properties as a real DOM object, 
+    but it lacks the real thing’s power to directly change what’s on the screen.
+
+*Self-Closing Tags
+What’s a self-closing tag?
+Most HTML elements use two tags: an opening tag (<div>), and a closing tag (</div>). 
+However, some HTML elements such as <img> and <input> use only one tag. 
+The tag that belongs to a single-tag element isn’t an opening tag nor a closing tag; it’s a self-closing tag.
+
+
+
+intervew-questions:::-
+1.what is react and reactjs?
+    
+    -It is open source javascript library for building user interfaces for the web applications as well as mobile applications.
+    -react is a front end library developed by Facebook.
+    -it is used for building reusable UI components.
+    -In a model view controller architecture, react defines the
+     view part of the application and it also responsible for how the app looks and feels.
+    -reactIJS is used to build single page application.
+    -react makes it easy to manage and build views for states
+    -react is component driven architecture makes it efficient for teams to complex apllications.
+    
+    
+2.why we chose react?
+    -Easy creation of dynamic web applications
+    -it also provides that performance enhancements, there are several performance enhancements are their 
+    +like virtual dom and one way data binding.
+    -react uses reusable components-
+    -react involves unidirectional data
+    -compare to other frame work like angular its much easier to learn and understanding 
+    -react can also used for mobile applications
+    -it also as dedicated tools for easy debugging+
+
+3.what is virtual DOM and how important to react?
+    -Virtual DOM  is like a lightweight copy of the actual DOM.
+
+    -In react, everything is treated as a component be it a functional component or class component.
+     A component can contain a state, whenever the state of any component is changed react updates it’s Virtual DOM tree.
+     here react maintaines the two virtual doms at each time, one is like updated virtual dom and another one is previouse one 
+     so here react compares the two virtual doms and figure out the what exactly changed in DOM like wich com
+     
+     
+     ponents changed.
+     React finds out what exactly has changed then it updated those objects only, on real DOM.
+     it improves the performance. 
+
+4.what is higher order component(HOC)?
+    -A higher-order component is a function that takes a component and returns a new component.
+     A higher-order component (HOC) is the advanced technique in React.js for reusing a component logic.
+5.examples of HOC?
+6.what is the component life cycle?
+    Mounting:-
+        when an instance of a component is being created and inserted into the dom 
+        simply we can say mounting is nothing but putting elements in to the DOM
+    Updating:-
+        when a component is being re-rendered as a result of changes to either its props or state
+    Unmounting:-
+        when a component is being removed from the dom
+    Error Handling:-
+        when there is an error during rendering,in a lifecycle method, or in the constructor of any child component
+
+7.what is redux?
+    -Redux is a open source javascript library and used to manage state values globally.
+    globally means if we can declare the state values in redux store so now we can access 
+    that values from any component and also changes to anyware.
+8.what is actions in redux?
+    -Actions are a plain JavaScript object that contains information.
+    -Actions are the only source of information for the store.
+    -Actions have a type field that tells to reducers, what kind of action to perform
+9.what is reducers?
+    - actions only tell what to do, but they don’t tell how to do,
+     so reducers are the pure functions that take the current state 
+     and action and return the new state and tell the store how to do.
+10.what is the dispachers in redux?
+    -dispach is a function of the redux store
+    -dispacher is nothing but postpan so it sends the action to the reducers
