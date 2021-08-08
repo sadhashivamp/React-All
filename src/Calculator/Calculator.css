@@ -1,0 +1,19 @@
+h1 {
+  color: white;
+  background-color: rgb(88, 83, 11);
+  padding: 50px;
+  text-align: center;
+}
+
+button {
+  background-color: rgb(230, 235, 135);
+  padding: 5px;
+  margin: 4px;
+  box-shadow: 2px 2px 2px 2px black;
+  border-radius: 15px;
+}
+.container {
+  background-color: rgb(86, 102, 89);
+  height: 500px;
+  width: 500px;
+}
