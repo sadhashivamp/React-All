@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react'
+import ImageSlider from './ImageSlider/ImageSlider'
 
-
-import MessageView from './MessageView/MessageView';
-
-class App extends Component {
-  render(){
-    return (
-      <MessageView />
-    )
-  }
+const App = () => {
+  return (
+    <div>
+      <ImageSlider />
+    </div>
+  )
 }
-export default App;
+
+export default App
