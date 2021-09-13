@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { useState } from "react";
-import { userData } from "./UserData";
-import "./Navbar.css";
+import { builderData } from "./BuilderData";
+import "./Bldrdsh.css";
 import { IconContext } from "react-icons";
 
-function UserDashboard() {
+function BuilderDashboard() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -28,7 +28,7 @@ function UserDashboard() {
               </Link>
             </li>
             <li>
-              {userData.map((item, index) => {
+              {builderData.map((item, index) => {
                 return (
                   <li key={index} className={item.cName}>
                     <Link to={item.path}>
@@ -46,4 +46,4 @@ function UserDashboard() {
   );
 }
 
-export default UserDashboard;
+export default BuilderDashboard;
