@@ -1,0 +1,884 @@
+/* Telugu Skillhub Tutorial */
+
+// 1.Class Component:
+import React, { Component } from 'react';
+import './App.css'
+class App extends Component {
+state = {
+    name: "MyOwnApp"
+}
+render() {
+    return (
+    <div className = 'App'>
+        <h1>Welcome To {this.state.name}</h1>
+    </div>
+    );
+}
+}
+export default App;
+
+// 2.Function component:
+import React, {useState} from 'react'
+
+export const App = () => {
+const [name,setName] = useState("MyOwnApp!")
+return (
+    <div>
+    <h1>Welcome To {name}</h1>
+    </div>
+)
+}
+export default App
+
+// 3.State and Props In Class Level Component:
+Display.js
+import React, { Component } from 'react';
+
+class Display extends Component {
+    render() {
+        return (
+            <div>
+                <h1>{this.props.name}</h1>
+            </div>
+        );
+    }
+}
+export default Display;
+App.js
+import React, { Component } from 'react';
+import './App.css'
+import Display from './Display';
+
+class App extends Component {
+state = {
+    name : "WELCOME TO MYOWNAPP!!"
+}
+render() {
+    return (
+    <div className = 'App'>
+        <Display name = {this.state.name}/>
+    </div>
+    );
+}
+}
+export default App;
+
+// 4.Styling In ReactJS:
+App.js
+import React from 'react'
+import './App.css'
+const App = () => {
+return (
+    <div className = "container">
+    <h1>WELCOME TO MYOWNAPP!!</h1>
+    </div>
+)
+}
+export default App
+App.css
+h1 {
+color: white;
+background-color: lightgray;
+padding: 50px;
+text-align: center;
+}
+.container {
+margin: 10px;
+}
+
+// Inline Styling in ReactJS:
+import React from 'react'
+
+const App = () => {
+return (
+    <div style = {{margin:"10px"}}>
+    <h1 style = {{color:"white",backgroundColor:"lightgray",textAlign:"center",padding:"50px"}}>WELCOME TO MYOWNAPP!!</h1>
+    </div>
+)
+}
+export default App
+
+// (2nd method):-
+import React from 'react'
+
+const App = () => {
+const styling = {
+    color:"white",
+    backgroundColor:"skyblue",
+    textAlign:"center",
+    padding:"50px"
+}
+return (
+    <div style = {{margin:"10px"}}>
+    <h1 style = {styling}>WELCOME TO MYOWNAPP!!</h1>
+    </div>
+)
+}
+export default App
+
+// 5.OnClick Event Handler in ReactJs:  The function must be executed when a button or text is clicked
+import React from 'react'
+
+const App = () => {
+const submitHandler = e => {    // Applied eventHandler for onClick button
+    e.preventDefault()
+    console.log('You clicked Click Me.');
+}
+return (
+    <div>
+    <center>
+        <button onClick = {submitHandler}>Click Me</button>
+    </center>
+    </div>
+)
+}
+export default App
+
+// (2nd method):-(ES7 method)
+import React from 'react'
+
+const App = () => {
+return (
+    <div>
+    <center>
+        <button onClick = {() => console.log('You clicked Click Me')}>Click Me</button>
+    </center>
+    </div>
+)
+}
+export default App
+
+// 6.useState{} In ReactJS: (used in function level component only)
+import React,{useState} from 'react'
+
+const App = () => {
+const [name, setName] = useState("MyOwnApp");
+return (
+    <div>
+    <center>
+        <h1>{name}</h1>
+        <button onClick = {() => setName("Welcome To MyOwnApp")}>Change</button>
+    </center>
+    </div>
+)
+}
+export default App
+
+// (2nd example):-
+import React,{useState} from 'react'
+
+const App = () => {
+const [count, setCount] = useState(0);
+return (
+    <div>
+    <center>
+        <h1>{count}</h1>
+        <button onClick = {() => setCount(count+1)}>Change</button>
+    </center>
+    </div>
+)
+}
+export default App
+
+// 7.useEffect {} In ReactJs:   If you want to execute any function after the return statement
+import React,{useState, useEffect} from 'react'
+
+const App = () => {
+const [count, setCount] = useState(0);
+useEffect(() => console.log(count),[count])
+return (
+    <div>
+    <center>
+        <h1>You clicked {count} times</h1>
+        <button onClick = {() => setCount(count+1)}>Click Me</button>
+    </center>
+    </div>
+)
+}
+export default App
+
+// 8.onChange eventHandler In ReactJs:  For proper handling of data taken from the user and assigning a variable
+import React, {useState} from 'react'
+
+const App = () => {
+const [user, setUser] = useState('');
+
+    const handler = e => {
+    setUser(e.target.value)
+}
+return (
+    <div>
+    <center>
+        <h1>Welcome to MyOwnApp!!</h1>
+        <input type="text" value = {user} placeholder = "username" onChange = {handler} /> 
+    </center>
+    </div>
+)
+}
+export default App
+
+// 9.onSubmit {} Handler In ReactJs:
+import React, {useState} from 'react'
+
+const App = () => {
+const [data, setData] = useState({
+    username: '',
+    password: '',
+})
+const {username, password} = data;
+    const handler = e => {
+    setData({...data,[e.target.name]:[e.target.value]})
+}
+const submitHandler = e => {
+    e.preventDefault();
+    console.log(data);
+}
+
+return (
+    <div style ={{backgroundColor:"yellow"}}className = "container">
+        <center>
+        <form onSubmit = {submitHandler}>
+            <h1 style ={{color:"lightgrey"}}>Welcome to MyOwnApp!!</h1>
+            <input style = {{backgroundColor:"skyblue",color:"red" }} type="text" name = "username" value = {username} 
+            placeholder = "username" onChange = {handler} /> <br />
+
+            <input style ={{backgroundColor:"skyblue"}} type="password" name = "password" value = {password} 
+            placeholder = "password" onChange = {handler} /> <br />
+
+            <button style ={{backgroundColor:"green"}} type = "submit">Submit</button>
+        </form>
+        </center>
+    </div>
+)
+}
+export default App
+
+// 10.Map () Function In ReactJs:   To hydrate the array of value and print it on an individual component
+//  Syntax: array.map((value,index) => <li> {value} </li>)
+
+// (Array of values):-
+import React from 'react'
+
+const App = () => {
+const arr = ["ReactJS", "NodeJS", "ExpressJS", "AngularJS"]
+
+return (
+    <div>
+        <center>
+        <h1>Welcome To MyownApp!!</h1>
+        </center>
+        {
+            arr.map(
+            (value, index) => <li key = {index}>{value}</li>
+            )
+            }
+        
+    </div>
+)
+}
+export default App
+
+// (object of values):-
+import React from 'react'
+
+const App = () => {
+const arr = [
+    {
+        id: 1,
+        title: "ReactJS",
+    },
+    {
+        id: 2,
+        title: "NodeJS",
+    },
+    {
+        id: 3,
+        title: "ExpressJS",
+    },
+    {
+        id:4,
+        title: "AngularJS"
+    }]
+return (
+    <div>
+        <center>
+        <h1>Welcome To MyownApp!!</h1>
+        </center>
+        {
+            arr.map(
+            (value) => <li key = {value.id}>{value.title}</li>
+            )
+            }
+    </div>
+    )
+}
+export default App
+
+// 11.Filter() Function In ReactJS:
+// Syntax:-array.filter((variable) => condition)
+
+import React from 'react'
+
+const App = () => {
+const names = ["james", "jon", "jeff", "josef"]
+const filtered = names.filter(name =>name.includes('o'))
+    
+return (
+    <div>
+        <center>
+        <h1>Welcome To MyOwnApp!!</h1>
+        </center>
+        {
+        filtered.map(item => <li>{item}</li>)
+        }
+    </div>
+)
+}
+export default App
+//(2nd example):-
+import React from 'react'
+
+const App = () => {
+const arr = [20, 30, 40, 50]
+const filtered = arr.filter(arr =>arr<40)
+    
+return (
+    <div>
+        <center>
+            <h1>Welcome To MyOwnApp!!</h1>
+        </center>
+        {
+            filtered.map(item => <li>{item}</li>)
+        }
+    </div>
+)
+}
+export default App
+
+// 12.Export vs Export default In ReactJS:
+// Syntax: export --> import{Component}
+// export default --> import Component
+
+header.js
+import React from 'react'
+
+const header = () => {
+    return (
+        <div>
+            <h2>Header</h2>
+        </div>
+    )
+}
+export default header
+footer.js
+import React from 'react'
+
+const footer = () => {
+    return (
+        <div>
+            <h2>Footer</h2>
+        </div>
+    )
+}
+export default footer
+home.js
+import React from 'react'
+
+const home = () => {
+    return (
+        <div>
+            <h2>Home</h2>
+        </div>
+    )
+}
+export default home
+App.js    --> // (all are imported in this app.js)
+import React from 'react';
+import Header from './Components/header';
+import Footer from './Components/footer';
+import Home from './Components/home';
+
+const App = () => {
+return (
+    <div>
+        <center>
+            <h1>Welcome To MyOwnApp!!</h1>
+        </center>
+            <Header />
+            <Footer />
+            <Home />
+        </div>
+    )
+}
+export default App
+
+// 13.Login Form Submit In ReactJS:
+import React, {useState} from 'react'
+
+const App = () => {
+const [data, setData] = useState({
+    username:'',
+    password:''
+})
+const{username,password} = data;
+const changeHandler = e => {
+    setData({...data,[e.target.name]:[e.target.value]})
+}
+const submitHandler = e => {
+e.preventDefault()
+console.log(data)
+}
+return (
+    <div>
+    <center>
+        <h1>Welcome To MyOwnApp!!</h1> 
+        <form onSubmit = {submitHandler}>
+            <input type = "text" name = "username" value = {username} onChange = {changeHandler}/> <br />
+            <input type = "password" name = "password" value = {password} onChange = {changeHandler} /> <br />
+            <button type = "login">Login</button>
+        </form>
+    </center>
+    </div>
+    )
+}
+export default App
+
+// 14.SignUp Form Submit In ReactJS:
+import React, {useState} from 'react'
+
+const App = () => {
+const [data, setData] = useState({
+    username:'',
+    email:'',
+    password:'',
+    confirmPassword:''
+})
+const{username,email,password,confirmPassword} = data;
+const changeHandler = e => {
+    setData({...data,[e.target.name]:e.target.value})
+}
+const submitHandler = e => {
+e.preventDefault()
+if(password === confirmPassword) {
+    console.log(data);
+}
+else {
+    alert("Incorrect password");
+}
+console.log(data)
+}
+
+return (
+    <div>
+    <center>
+        <h1>Welcome To MyOwnApp!!</h1> 
+        <form onSubmit = {submitHandler}>
+            <input type = "text" name = "username" placeholder = "Enter username" value = {username} onChange = {changeHandler} /> <br />
+            <input type = "email" name = "email" placeholder = "Enter Email" value = {email} onChange = {changeHandler} /> <br />
+            <input type = "password" name = "password" placeholder = "Enter password" value = {password} onChange = {changeHandler} /> <br />
+            <input type = "password" name = "confirmPassword" placeholder = "Confirm Password" value = {confirmPassword} onChange = {changeHandler} /> <br />
+            <button type = "submit">Submit</button>
+        </form>
+    </center>
+    </div>
+)
+}
+export default App
+
+// 15.Form Validation:
+import React, {useState} from 'react'
+
+const App = () => {
+const [data, setData] = useState({
+    username:'',
+    email:'',
+    password:'',
+    confirmPassword:''
+})
+const{username,email,password,confirmPassword} = data;
+const changeHandler = e => {
+    setData({...data,[e.target.name]:[e.target.value]})
+}
+const submitHandler = e => {
+e.preventDefault();
+if(username.length <= 5){
+    alert("username must be at least 5 character");
+}
+else if(password !== confirmPassword) {
+    alert("Incorrect password");
+}
+else {
+console.log(data)
+}
+}
+return (
+    <div>
+    <center>
+        <h1>Welcome To MyOwnApp!!</h1> 
+        <form autoComplete = "off" onSubmit = {submitHandler}>
+            <input type = "text" name = "username" placeholder = "Username" value = {username} onChange = {changeHandler} /> <br />
+            <input type = "email" name = "email" placeholder = "Email" value = {email} onChange = {changeHandler} /> <br />
+            <input type = "password" name = "password" placeholder = "Password" value = {password} onChange = {changeHandler} /> <br />
+            <input type = "password" name = "confirmPassword" placeholder = "Confirm Password" value = {confirmPassword} onChange = {changeHandler} /> <br />
+            <button type = "submit">Submit</button>
+        </form>
+    </center>
+    </div>
+)
+}
+export default App
+
+// 16.Calculator App Using ReactJS:
+Calculator.js
+import React, {useState} from 'react'
+import './Calculator.css'
+
+const Calculator = () => {
+const [input, setInput] = useState('');
+const [result, setResult] = useState(0);
+const handler = e => {
+    setInput(e.target.value)
+}
+return (
+    <div className = "container">
+    <center>
+        <h1>Calculator</h1>
+    <input type = "text" value = {input} name = "input" onChange = {handler}/>
+    <br />
+    <button onClick={() => setResult(eval(input))}>Result</button>
+    <h2>Result is: {result}</h2>
+
+    <button onClick={() => setInput(input+'1')}>1</button>
+    <button onClick={() => setInput(input+'2')}>2</button>
+    <button onClick={() => setInput(input+'3')}>3</button>
+    <button onClick={() => setInput(input+'4')}>4</button>
+    <button onClick={() => setInput(input+'5')}>5</button><br />
+
+    <button onClick={() => setInput(input+'6')}>6</button>
+    <button onClick={() => setInput(input+'7')}>7</button>
+    <button onClick={() => setInput(input+'8')}>8</button>
+    <button onClick={() => setInput(input+'9')}>9</button>
+    <button onClick={() => setInput(input+'0')}>0</button><br />
+
+    <button onClick={() => setInput(input+'+')}>+</button>
+    <button onClick={() => setInput(input+'-')}>-</button>
+    <button onClick={() => setInput(input+'*')}>*</button>
+    <button onClick={() => setInput(input+'/')}>/</button>
+    <button onClick={() => setInput(input+'')}>clr</button><br />
+
+
+    </center>
+    </div>
+)
+}
+export default Calculator
+
+Calculator.css:
+h1 {
+    color: white;
+    background-color: aqua;
+    padding: 50px;
+    text-align: center;
+}
+.container {
+    margin: 10px;
+}
+button {
+    background-color: rgb(230, 235, 135);
+    padding: 5px;
+    margin: 4px;
+    box-shadow: 2px 2px 2px 2px black;
+    border-radius: 15px;
+}
+.container {
+    background-color: lightgray;
+    height: 1000px;
+}
+
+App.js:
+import React from 'react'
+import Calculator from './Calculator/Calculator'
+const App = () => {
+return (
+    <div>
+    <Calculator />
+    </div>
+)
+}
+export default App
+
+// 17.Fetch () In ReactJS:
+import React, {useEffect, useState} from 'react'
+
+const App = () => {
+const [data, setData] = useState([]);
+useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(response => response.json())
+    .then(json => setData(json))
+},[])
+return (
+    <div>
+    Welcome To MyOwnApp!!
+    {data.map(item => <li key={item.id}>{item.title}</li>)}
+    </div>
+)
+}
+export default App
+
+// 18.Axios In ReactJS:
+import React, {useState,useEffect} from 'react'
+import axios from 'axios'
+
+
+const App = () => {
+const [data, setData] = useState([]);
+useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/todos/")
+    .then(response => setData(response.data)
+    )
+},[])
+return (
+    <div>
+    Welcome To MyOwnApp!!
+    {data.map(item => <li key = {item.id}>{item.title}</li>)}
+    </div>
+)
+}
+export default App
+
+// 19.React JS Form Submission To FirebaseDatabase:
+
+
+
+//COMPONENTS::==> 
+//Create a first component in React?
+    import React from 'react'
+
+    function IamAH1() {
+        return (
+            <h1>Wow this is so cool</h1>
+        )
+    }
+    function App() {
+        return (
+            <IamAH1 />
+        )
+    }
+    export default App
+
+//Statefull components ==>
+import React, { useState } from 'react'
+
+function App() { 
+let [count, setCount] = useState(0)
+function buttonWasClicked() {
+setCount(count + 1)
+}
+return (
+<div>
+<button onClick = { buttonWasClicked }>button</button>
+<h1>{ count }</h1>
+
+</div>
+)
+}
+export default App
+
+// Building on increment and decrement counter ==>
+
+import React, { useState } from 'react'
+function App() {
+
+const [counter, setCounter] = useState(0)
+
+return (
+    <div>
+        <h1>{counter}</h1>
+        <div>
+            <button onClick={() => setCounter((c) => c + 1)} id="increment">
+                Increment
+            </button>
+            <button id="decrement" onClick={() => setCounter((c) => c - 1)}>
+                Decrement
+            </button>
+        </div>
+    </div>
+)
+}
+
+export default App
+
+
+// JSX Expression ==>
+
+// Using JavaScript expressions in JSX:==>
+(index.js)
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const name = "Learner";
+
+const element = <h1>Hello,
+{ name }.Welcome to ReactJS tutorial.</h1>;
+
+ReactDOM.render(
+element,
+document.getElementById("root")
+);
+//Output==> Hello, Learner.Welcome to ReactJS tutorial.
+
+//example(2) =>
+
+import React from 'react'
+
+const arr = [1,2,3,4,5,6]
+function App () {
+return (
+    <h1>hello world { arr.map(val => <div>{ val ** 2 }</div>) }</h1>
+)
+}
+export default App
+
+//ONCLICK EVENT(DOM EVENTS) ==>
+
+import React from 'react'
+
+function App() { 
+
+function buttonWasClicked(event) {
+alert('I was clicked')
+}
+
+return (
+<div>
+<button onClick = { buttonWasClicked }>button</button>
+<h1>this is heading</h1>
+<p>this is paragraph</p>
+</div>
+)
+}
+export default App
+
+//Attributes in JSX ==>
+const p1 = <p id="large">foo</p>;
+const p2 = <p id="small">bar</p>;
+
+//Nested JSX ==> 
+const myDiv = (
+<div>
+<h1>Hello World</h1>
+</div>
+)
+
+//example: ->
+
+
+const element = <div>
+            <h1>This is Heading 1 </h1>
+            <h2>This is Heading 2</h2 >
+            <h3>This is Heading 3 </h3>   
+            </div > ;
+ReactDOM.render(
+element,
+document.getElementById("root"));
+//JSX Outer Elements ==>
+const blog = (
+<div>
+<img src="pics/192940u73.jpg" />
+<h1>
+Welcome to Dan's Blog!
+</h1>
+<article>
+Wow I had the tastiest sandwich today.  I <strong>literally</strong> almost freaked out.
+</article>
+</div>
+);
+
+//Rendering in JSX ==>
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+<h1>Hello World</h1>
+);
+document.getElementById('app');
+
+//Passing a Variable to ReactDOM.render() ==>
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const myList = (
+<ul>
+<li>
+hello world
+</li>
+</ul>
+)
+ReactDOM.render (
+myList
+document.getElementById('app')
+);       
+
+//Advanced ReactJS:==>
+//class vs className
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const myDiv = <div className="big">I AM A BIG DIV</div>;
+ReactDOM.render (
+myDiv,
+document.getElementById('app')
+);
+
+Self-Closing Tags ==>
+
+const profile = (
+<div>
+<h1>I AM JENKINS</h1>
+<img src="images/jenkins.png" />
+<article>
+    I LIKE TO SIT
+<br />
+    JENKINS IS MY NAME
+<br />
+    THANKS HA LOT
+</article>
+</div>
+);
+
+JavaScript In Your JSX In Your JavaScript ==>
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+<h1>{ 2 + 3 }</h1>,
+document.getElementById('app')
+);
+Form create: ==>
+import React, { useState } from 'reset'
+
+function App() {
+const [name, setName] = useState('')
+const [password, setPassword] = useState('')
+
+return (
+    <div>
+        <input type ="text" value = {name} onChange = {updateTextFailed} />
+        <input type ="password" value = {password} onChange = {updatePasswordFailed} />
+        <button onClick = {submitForm}>Submit Form</button>
+    </div>
+)
+function submitForm() {
+    console.log(name, password)
+}
+function updatePasswordFailed(event) {
+    setPassword(event.target.value)
+}
+function updateTextFailed(event) {
+    setName(event.target.value)
+}
+}

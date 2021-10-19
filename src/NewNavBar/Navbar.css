@@ -1,0 +1,18 @@
+.nav {
+  background-color: #00704b;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  justify-content: space-around;
+}
+h1 {
+  font-family: "impact";
+  font-size: "large";
+}
+.nav-list {
+  display: flex;
+  padding: 50px 50px;
+  /* padding-bottom: 50px;
+    padding-top: 50px; */
+  justify-content: space-between;
+}

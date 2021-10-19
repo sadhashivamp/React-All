@@ -209,10 +209,7 @@ intervew-questions:::-
     -In react, everything is treated as a component be it a functional component or class component.
      A component can contain a state, whenever the state of any component is changed react updates it’s Virtual DOM tree.
      here react maintaines the two virtual doms at each time, one is like updated virtual dom and another one is previouse one 
-     so here react compares the two virtual doms and figure out the what exactly changed in DOM like wich com
-     
-     
-     ponents changed.
+     so here react compares the two virtual doms and figure out the what exactly changed in DOM like wich components changed.
      React finds out what exactly has changed then it updated those objects only, on real DOM.
      it improves the performance. 
 
