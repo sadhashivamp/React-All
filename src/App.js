@@ -1,13 +1,12 @@
 import React from "react";
-import UseEffect from "./ReactHooks/UseEffect.js";
+import Posts from "./API_fetch/filtered_Data/Posts";
 
 const App = () => {
   return (
     <div>
-      <center>
-        <UseEffect />
-      </center>
+      <Posts />
     </div>
   );
 };
+
 export default App;

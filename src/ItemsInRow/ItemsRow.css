@@ -1,0 +1,14 @@
+body {
+    margin: 0px;
+  }
+  .parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .flex-item{
+    
+     flex: 0 0 192px; /* play with this number */
+     background: red;
+     margin: 10px;
+  }

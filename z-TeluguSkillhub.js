@@ -44,6 +44,7 @@ class Display extends Component {
     }
 }
 export default Display;
+
 App.js
 import React, { Component } from 'react';
 import './App.css'
@@ -235,17 +236,17 @@ const submitHandler = e => {
 }
 
 return (
-    <div style ={{backgroundColor:"yellow"}}className = "container">
+    <div className = "container">
         <center>
         <form onSubmit = {submitHandler}>
-            <h1 style ={{color:"lightgrey"}}>Welcome to MyOwnApp!!</h1>
-            <input style = {{backgroundColor:"skyblue",color:"red" }} type="text" name = "username" value = {username} 
+            <h1>Welcome to MyOwnApp!!</h1>
+            <input type="text" name = "username" value = {username} 
             placeholder = "username" onChange = {handler} /> <br />
 
-            <input style ={{backgroundColor:"skyblue"}} type="password" name = "password" value = {password} 
+            <input type="password" name = "password" value = {password} 
             placeholder = "password" onChange = {handler} /> <br />
 
-            <button style ={{backgroundColor:"green"}} type = "submit">Submit</button>
+            <button type = "submit">Submit</button>
         </form>
         </center>
     </div>

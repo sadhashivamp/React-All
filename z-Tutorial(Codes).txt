@@ -9,6 +9,7 @@ Shorcuts--- rcc(class component),
             state = {
                 name: "MyOwnApp"
             }
+            
             render() {
                 return (
                 <div className = 'App'>
@@ -18,6 +19,52 @@ Shorcuts--- rcc(class component),
             }
             }
             export default App;
+
+
+Example: - 
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'freeCodeCamp'
+    }
+  }
+  render() {
+const name = this.state.name;
+    return (
+      <div>
+        <h1>{name}</h1>  
+      </div>
+    );
+  }
+};
+
+Example: UpdateState
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'Initial State'
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState({
+      name: 'React Rocks!'
+    });
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>Click Me</button>
+        <h1>{this.state.name}</h1>
+      </div>
+    );
+  }
+};
+
 
 2.Function component:
             import React, {useState} from 'react'
@@ -64,6 +111,149 @@ App.js
             }
             }
             export default App;
+
+Examples: -
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+            <Welcome name="sadha" />
+        </div>
+    );
+  }
+};
+
+class Welcome extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+        <div>
+          <p>Hello, <strong>{this.props.name}</strong>!</p>
+        </div>
+    );
+  }
+};
+
+
+Examples: - 
+
+const CurrentDate = (props) => {
+  return (
+    <div>
+      <p>The current date is:{props.date} </p>
+    </div>
+  );
+};
+
+class Calendar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>What date is it?</h3>
+        <CurrentDate date={Date()} />
+      </div>
+    );
+  }
+};
+
+
+Examples: -  
+
+const List = (props) => {
+  return <p>{props.tasks.join(',')}</p>
+};
+
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>To Do Lists</h1>
+        <h2>Today</h2>
+        <List tasks={["task1", 'task2']}/>
+        <h2>Tomorrow</h2>
+        <List tasks={["task11", 'task22', "task33"]}/>
+      </div>
+    );
+  }
+};
+
+
+Examples: -
+
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+};
+
+Items.propTypes = {
+  quantity: PropTypes.number.isRequired
+};
+
+
+Items.defaultProps = {
+  quantity: 10
+};
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <Items />
+  }
+};
+
+
+Example: -
+
+class CampSite extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <Camper/>
+      </div>
+    );
+  }
+};
+
+class Camper extends React.Component {
+  constructor(props){
+    super(props)
+  }
+
+render() {
+  return(
+    <div>
+    <p>{this.props.name}</p>
+    </div>
+  )
+}
+
+}
+Camper.defaultProps = {
+  name : "CamperBot"
+}
+
+Camper.propTypes = {
+  name: PropTypes.string.isRequired
+};
+
+
 
 4.Styling In ReactJS:
 App.js
